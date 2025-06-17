@@ -2,7 +2,7 @@ import express from 'express';
 import connectDB from './config/db.js';
 import dotenv from 'dotenv';
 import userRouter from './routes/userRoutes.js';
-import loginRouter from './routes/loginRoutes.js';
+import taskRouter from './routes/taskRoute.js';
 
 const app = express();
 dotenv.config();
@@ -13,7 +13,7 @@ app.use(express.json());
 connectDB();
 
 app.use("/api/users", userRouter);
-app.use("/api/users", loginRouter);
+app.use("/api/task", taskRouter);
 
 app.get("/",(req,res)=>{
     res.send("api is running");
